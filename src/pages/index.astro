@@ -1,10 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import Card from "../components/Card.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="View Transitions Example">
-  <main>
-    <h1 class="text-3xl font-black">Hello World</h1>
+  <main class="mx-auto min-h-[200dvh] max-w-xl py-56">
+    <ul class="list-none">
+      <Card
+        url="#"
+        title="Hello World"
+        subtitle="Excepteur eiusmod nulla esse culpa anim elit ipsum."
+      />
+    </ul>
   </main>
 </Layout>

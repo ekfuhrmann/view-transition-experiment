@@ -1,21 +1,39 @@
 ---
 export interface Props {
+  url: string;
   title: string;
-  body: string;
-  href: string;
+  subtitle: string;
 }
 
-const { href, title, body } = Astro.props;
+const { url, title, subtitle } = Astro.props;
+
+import video from "../assets/videos/waves.mp4";
 ---
 
-<li class="link-card">
-  <a href={href}>
-    <h2>
-      {title}
-      <span>&rarr;</span>
-    </h2>
-    <p>
-      {body}
-    </p>
+<li class="aspect-square rounded-xl shadow-card">
+  <a href={url} class="relative block h-full w-full p-32">
+    <div class="text-white">
+      <h2 class="text-6xl font-bold drop-shadow">
+        {title}
+      </h2>
+      <p class="text-lg">
+        {subtitle}
+      </p>
+    </div>
+    <div
+      class="absolute inset-0 -z-10 overflow-hidden rounded-xl after:absolute after:inset-0 after:z-10 after:bg-gradient-to-br after:from-black/60 after:via-black/60 after:via-20% after:to-transparent"
+    >
+      <video
+        autoplay
+        loop="true"
+        muted="true"
+        playsinline="true"
+        autoplay="true"
+        class="h-full w-full object-cover"
+      >
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </a>
 </li>

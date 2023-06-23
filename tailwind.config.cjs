@@ -50,7 +50,11 @@ module.exports = {
     wh: {
       ...pxPair(24),
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        card: "inset 0 0 0 6px #000, 6px 6px #fff, 12px 12px #000",
+      },
+    },
   },
   plugins: [require("./config/tailwind/width-height.cjs")],
 };
