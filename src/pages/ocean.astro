@@ -1,27 +1,20 @@
 ---
-export interface Props {
-  url: string;
-  title: string;
-  subtitle: string;
-  vtName?: string;
-}
-
-const { url, title, subtitle, vtName } = Astro.props;
-
+import Layout from "../layouts/Layout.astro";
 import video from "../assets/videos/waves.mp4";
+import cards from "../data/cards.js";
 ---
 
-<li
-  class="aspect-square rounded-xl shadow-card"
-  style=`view-transition-name: ${vtName}`
->
-  <a href={url} class="relative block h-full w-full p-32">
+<Layout title="Ocean | View Transitions Example">
+  <header
+    class="relative min-h-screen w-full"
+    style="view-transition-name: ocean"
+  >
     <div class="text-white">
       <h2 class="text-6xl font-bold drop-shadow">
-        {title}
+        {cards[0].title}
       </h2>
       <p class="text-lg">
-        {subtitle}
+        {cards[0].subtitle}
       </p>
     </div>
     <div
@@ -39,5 +32,5 @@ import video from "../assets/videos/waves.mp4";
         Your browser does not support the video tag.
       </video>
     </div>
-  </a>
-</li>
+  </header>
+</Layout>
