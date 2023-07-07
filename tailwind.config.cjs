@@ -1,4 +1,4 @@
-// IMPORTANT: PostCSS Converts all `px` values to `rem`
+// IMPORTANT: PostCSS Converts all `px` values to `rem`hero__svg
 const pxPair = (value) => ({ [value]: `${value}px` });
 
 /** @type {import('tailwindcss').Config} */
@@ -50,7 +50,14 @@ module.exports = {
     wh: {
       ...pxPair(24),
     },
+    fontFamily: {
+      serif: ['"Playfair Display"', "serif"],
+      sans: ['"Source Sans 3"', "sans-serif"],
+    },
     extend: {
+      minHeight: {
+        "screen-nav": "calc(100dvh - 56px)",
+      },
       boxShadow: {
         card: "inset 0 0 0 6px #000, 6px 6px #fff, 12px 12px #000",
       },

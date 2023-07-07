@@ -4,23 +4,22 @@ export interface Props {
   title: string;
   subtitle: string;
   vtName?: string;
+  backgroundAsset?: string;
 }
 
-const { url, title, subtitle, vtName } = Astro.props;
-
-import video from "../assets/videos/waves.mp4";
+const { url, title, subtitle, vtName, backgroundAsset } = Astro.props;
 ---
 
 <li
   class="aspect-square rounded-xl shadow-card"
   style=`view-transition-name: ${vtName}`
 >
-  <a href={url} class="relative block h-full w-full p-32">
+  <a href={url} class="relative block h-full w-full p-[1vw]">
     <div class="text-white">
-      <h2 class="text-6xl font-bold drop-shadow">
+      <h2 class="text-[4.5vw] font-bold leading-none drop-shadow">
         {title}
       </h2>
-      <p class="text-lg">
+      <p class="mt-[2vw] text-[.8vw]">
         {subtitle}
       </p>
     </div>
@@ -35,7 +34,7 @@ import video from "../assets/videos/waves.mp4";
         autoplay="true"
         class="h-full w-full object-cover"
       >
-        <source src={video} type="video/mp4" />
+        <source src={backgroundAsset} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>

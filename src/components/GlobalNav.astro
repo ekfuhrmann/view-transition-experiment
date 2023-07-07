@@ -1,0 +1,18 @@
+---
+import LogoSvg from "../assets/images/logo.svg?raw";
+---
+
+<header
+  class="sticky top-0 flex h-56 w-full items-center justify-between gap-24 px-24 text-gray-800"
+>
+  <a href="/" class="inline-flex h-24 items-center gap-10 [&_svg]:h-full">
+    <p class="sr-only">return to homepage</p>
+    <Fragment set:html={LogoSvg} />
+  </a>
+  <nav>
+    <ul class="list-none">
+      <li><a href="/boxes" class="hover:underline">Boxes</a></li>
+      <li><a href="/emojis" class="hover:underline">Emojis</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,8 +1,10 @@
 ---
 slug: "ocean"
-title: "The Great Blue Abyss"
+title: |
+  The Great
+  Blue Abyss
 subtitle: "Excepteur eiusmod nulla esse culpa anim elit ipsum."
-backgroundAsset: "/assets/videos/waves.mp4"
+backgroundAsset: "/videos/waves.mp4"
 layout: "../../layouts/ArticleLayout.astro"
 ---
 

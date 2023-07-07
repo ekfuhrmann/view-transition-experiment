@@ -1,0 +1,18 @@
+---
+export interface Props {
+  color: string;
+}
+
+const { color } = Astro.props;
+---
+
+<header class="flex min-h-screen-nav w-full items-center justify-center">
+  <div
+    class=`flex bg-${color}-500  aspect-square w-full max-w-lg items-center justify-center text-white`
+    style=`view-transition-name:${color}`
+  >
+    <p class="text-6xl font-bold">
+      {color.charAt(0).toUpperCase() + color.slice(1)} Box
+    </p>
+  </div>
+</header>

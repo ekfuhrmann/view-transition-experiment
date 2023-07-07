@@ -1,25 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import cards from "../data/cards.js";
-import { getCollection } from "astro:content";
+// import cards from "../data/cards.js";
+// import { getCollection } from "astro:content";
 
 const posts = await Astro.glob("./posts/*.md");
 ---
 
 <Layout title="View Transitions Example">
   <main class="mx-auto min-h-[200dvh] max-w-xl py-56">
-    <h1>Hello World</h1>
     <ul class="list-none">
       {
         posts.map((post) => (
-          <p>{post.url}</p>
-          // <Card
-          //   title={article.title}
-          //   subtitle={article.subtitle}
-          //   url={article.slug}
-          //   vtName={article.vtName}
-          // />
+          <Card
+            title={post.frontmatter.title}
+            subtitle={post.frontmatter.subtitle}
+            url={post.url}
+            vtName={post.frontmatter.slug}
+            backgroundAsset={post.frontmatter.backgroundAsset}
+          />
         ))
       }
     </ul>

@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="View Transitions Boxes | Blue">
+  <main class="mx-auto max-w-5xl">
+    <header class="mt-120">
+      <div class="grid w-full grid-cols-12">
+        <!--
+          NOTE: we use `width: fit-content to
+          resize smoothly between views`
+        -->
+        <div class="col-span-7 text-[20vw]" data-emoji-heart-hands>
+          <h1 class="flex items-center gap-10 text-5xl font-bold">
+            <span>🫶</span>
+            <span>Heart Hands</span>
+          </h1>
+          <p
+            class="w-fit text-[200px] leading-none sm:text-[30vw] lg:text-[400px]"
+            style=`view-transition-name:heart-hands;`
+          >
+            🫶
+          </p>
+        </div>
+        <div class="rich-text col-span-5">
+          <h2>Emoji Meaning</h2>
+          <p>
+            Two hands forming a heart shape. Used to express love and support.
+          </p>
+          <p>
+            Heart Hands was approved as part of Unicode 14.0 in 2021 and added
+            to Emoji 14.0 in 2021.
+          </p>
+          <h2>Copy and Paste</h2>
+          <label>
+            Copy and paste this emoji:
+            <input
+              type="text"
+              value="🫶"
+              readonly
+              class="w-44 border text-3xl"
+            />
+          </label>
+        </div>
+        <p></p>
+      </div>
+    </header>
+  </main>
+</Layout>
+
+<style is:global>
+  .rich-text {
+    h2 {
+      @apply text-2xl font-bold;
+    }
+
+    * + h2 {
+      @apply mt-56;
+    }
+
+    * + * {
+      @apply mt-16;
+    }
+  }
+</style>
+
+<script>
+  console.log(document.querySelector("[data-emoji-heart-hands]"));
+
+  function spaNavigate(data) {
+    // Fallback for browsers that don't support this API:
+    if (!document.startViewTransition) {
+      updateTheDOMSomehow(data);
+      return;
+    }
+
+    // With a transition:
+    document.startViewTransition(() => updateTheDOMSomehow(data));
+  }
+</script>

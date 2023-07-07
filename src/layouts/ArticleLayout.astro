@@ -1,5 +1,5 @@
 ---
-const { frontmatter } = Astro.props;
+const { frontmatter, file } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -9,10 +9,46 @@ const { frontmatter } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{frontmatter.title}</title>
+    <title set:html={frontmatter.title}>{frontmatter.title}</title>
     <meta name="view-transition" content="same-origin" />
   </head>
   <body>
-    <h1>{frontmatter.title}</h1>
+    <header
+      class="relative min-h-screen w-full"
+      style=`view-transition-name: ${frontmatter.slug}`
+    >
+      <div class="p-[2vw] text-white">
+        <h1
+          class="max-w-[10ch] text-[8vw] font-bold leading-none drop-shadow"
+          set:html={frontmatter.title}
+        />
+        <p class="mt-[3vw] text-[1.5vw]">
+          {frontmatter.subtitle}
+        </p>
+      </div>
+      <div
+        class="absolute inset-0 -z-10 overflow-hidden after:absolute after:inset-0 after:z-10 after:bg-gradient-to-br after:from-black/60 after:via-black/60 after:via-20% after:to-transparent"
+      >
+        <video
+          autoplay
+          loop="true"
+          muted="true"
+          playsinline="true"
+          autoplay="true"
+          class="h-full w-full object-cover"
+        >
+          <source src={frontmatter.backgroundAsset} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </header>
+    <div class="wysiwyg mx-auto max-w-4xl py-120">
+      <slot />
+    </div>
   </body>
 </html>
+<style is:global>
+  .wysiwyg h1 {
+    @apply text-6xl font-bold;
+  }
+</style>
