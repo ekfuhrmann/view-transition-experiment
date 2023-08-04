@@ -12,7 +12,7 @@ const boxes = ["red", "green", "blue", "purple"];
         boxes.map((box) => (
           <li>
             <a
-              class={`relative block aspect-square w-fit transition-all duration-500 bg-${box}-500`}
+              class={`w-100 relative block aspect-square transition-all duration-500 bg-${box}-500`}
               href={`boxes/${box}`}
               style={`view-transition-name:${box}`}
             >
@@ -24,11 +24,3 @@ const boxes = ["red", "green", "blue", "purple"];
     </ul>
   </main>
 </Layout>
-<style is:global>
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-    display: block;
-  }
-</style>

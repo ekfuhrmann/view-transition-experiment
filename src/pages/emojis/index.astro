@@ -1,33 +1,49 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-const boxes = ["red", "green", "blue", "purple"];
+const icons = [
+  {
+    url: "emojis/heart-hands",
+    transitionName: "heart-hands",
+    name: "🫶",
+  },
+  {
+    url: "emojis/red-heart",
+    transitionName: "red-heart",
+    name: "❤️",
+  },
+  {
+    url: "emojis/fire",
+    transitionName: "fire",
+    name: "🔥",
+  },
+  {
+    url: "emojis/check-mark",
+    transitionName: "check-mark",
+    name: "✅",
+  },
+];
 ---
 
 <!-- purgecss bg-red-500 bg-green-500 bg-blue-500 bg-purple-500 -->
 <Layout title="View Transitions Boxes">
   <main class="flex min-h-screen-nav items-center justify-center">
     <ul class="mx-auto grid w-fit max-w-xs list-none grid-cols-4 gap-16">
-      <li>
-        <a href="emojis/heart-hands" style=`view-transition-name:heart-hands`
-          >🫶</a
-        >
-      </li>
-      <li>
-        <a href="emojis/red-heart" style=`view-transition-name:red-heart`>❤️</a>
-      </li>
-      <li>
-        <a href="emojis/fire" style=`view-transition-name:fire`>🔥</a>
-      </li>
-      <li>
-        <a href="emojis/check-mark" style=`view-transition-name:check-mark`
-          >✅</a
-        >
-      </li>
+      {
+        icons.map(({ url, transitionName, name }) => (
+          <li>
+            <a
+              href={url}
+              style={`view-transition-name:${transitionName}`}
+              class="text-2xl"
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </main>
 </Layout>
 
-<!-- TODO: convert emojis into `svg` https://emojipedia.org/ -->
-
-<!-- NOTE: There are issues transitioning text using `line-height` -->
+<!-- NOTE: Emoji Info `svg` https://emojipedia.org/ -->

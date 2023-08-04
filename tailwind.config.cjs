@@ -51,8 +51,8 @@ module.exports = {
       ...pxPair(24),
     },
     fontFamily: {
-      serif: ['"Playfair Display"', "serif"],
-      sans: ['"Source Sans 3"', "sans-serif"],
+      serif: ['"Playfair Display Variable"', "sans-serif"],
+      sans: ['"Source Sans 3 Variable"', "sans-serif"],
     },
     extend: {
       minHeight: {

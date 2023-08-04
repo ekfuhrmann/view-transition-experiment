@@ -1,5 +1,20 @@
 ---
 import LogoSvg from "../assets/images/logo.svg?raw";
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const validatePath = pathname.match(/^\/[^\/]*/);
+
+const links = [
+  {
+    href: "/boxes",
+    text: "Boxes",
+  },
+  {
+    href: "/emojis",
+    text: "Emojis",
+  },
+];
 ---
 
 <header
@@ -10,9 +25,24 @@ import LogoSvg from "../assets/images/logo.svg?raw";
     <Fragment set:html={LogoSvg} />
   </a>
   <nav>
-    <ul class="list-none">
-      <li><a href="/boxes" class="hover:underline">Boxes</a></li>
-      <li><a href="/emojis" class="hover:underline">Emojis</a></li>
+    <ul class="flex list-none gap-24">
+      {
+        links.map(({ href, text }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                "inline-flex h-24 items-center gap-10 text-xl",
+                {
+                  "font-bold": pathname.startsWith(href),
+                },
+              ]}
+            >
+              {text}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
