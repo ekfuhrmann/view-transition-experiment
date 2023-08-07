@@ -7,5 +7,9 @@ export default defineConfig({
   integrations: [tailwind()],
   experimental: {
     assets: true,
+    redirects: true,
+  },
+  redirects: {
+    "/": "/boxes",
   },
 });
